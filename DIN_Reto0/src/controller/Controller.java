@@ -5,20 +5,36 @@
  */
 package controller;
 
-
-import factories.ModelFactory;
-import factories.ViewFactory;
-import java.util.ResourceBundle;
+import interfaces.Model;
+import interfaces.View;
 
 /**
  *
  * @author 2dam
  */
 public class Controller {
+
+    /**
+     * take the model and view form tha app class
+     * @param m
+     * @param v 
+     */
+    public Controller(Model m, View v) {
+        run(m, v);
+    }
     
-    
-    ResourceBundle config = ResourceBundle.getBundle("config.properties"); 
-    
-    
+    /**
+     * run the app taking the message and showing it
+     * @param m
+     * @param v 
+     */
+    public void run(Model m, View v){
+       String greet;
+       greet = m.getGreeting();
+       v.showGreeting(greet);
+    }
     
 }
+
+
+    

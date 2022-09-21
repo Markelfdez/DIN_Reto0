@@ -12,7 +12,7 @@ package interfaces;
 public interface Model {
 
     /**
-     *
+     * create the method "getGreeting" 
      * @return
      */
     

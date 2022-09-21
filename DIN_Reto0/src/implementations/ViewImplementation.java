@@ -13,9 +13,13 @@ import interfaces.View;
  */
 public class ViewImplementation implements View{
 
+    /**
+     * show the message "Hello wolrd" from config.properties
+     * @param greet 
+     */
     @Override
     public void showGreeting(String greet) {
         System.out.println(greet);
     }
-    
+
 }

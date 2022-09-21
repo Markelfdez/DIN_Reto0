@@ -9,8 +9,9 @@ package interfaces;
 public interface View {
     
     /**
-     *
+     * create the method "showGreeting" 
      * @param greet
      */
     public void showGreeting(String greet);
+
 }

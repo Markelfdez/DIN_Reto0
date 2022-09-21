@@ -14,11 +14,13 @@ import java.util.ResourceBundle;
  */
 public class ModelImplementation implements Model{
 
+    /**
+     * take the message from the config file
+     * @return 
+     */
     @Override
     public String getGreeting() {
-        ResourceBundle config = ResourceBundle.getBundle("config.properties");
-        
+        ResourceBundle config = ResourceBundle.getBundle("config");
         return config.getString("Message");
     }
-    
 }
