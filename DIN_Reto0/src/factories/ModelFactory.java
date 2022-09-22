@@ -5,19 +5,28 @@
  */
 package factories;
 
+import implementations.ModelBDImplementation;
 import interfaces.Model;
 import implementations.ModelImplementation;
+import java.util.ResourceBundle;
 
 /**
  * implements the model and returns it
+ *
  * @author 2dam
  */
 public class ModelFactory {
 
-    private static Model m = new ModelImplementation();
-    
-    public static Model getModel() {
+    ResourceBundle config = ResourceBundle.getBundle("config");
+    String option = config.getString("Access");
+    private Model m;
+
+    public Model getModel() {
+        if (option.equalsIgnoreCase("File")) {
+            m = new ModelImplementation();
+        } else {
+            m = new ModelBDImplementation();
+        }
         return m;
     }
-
 }
