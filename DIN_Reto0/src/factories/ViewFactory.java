@@ -5,17 +5,27 @@
  */
 package factories;
 
+import implementations.ViewBDImplementation;
 import interfaces.View;
 import implementations.ViewImplementation;
+import java.util.ResourceBundle;
 
 /**
  * Imprements the view and returns it
  * @author 2dam
  */
 public class ViewFactory {
-    private static View v = new ViewImplementation();
+    
+    static ResourceBundle config = ResourceBundle.getBundle("config");
+    static String option = config.getString("View");
+    private static View v;
     
     public static View getView(){
+        if (option.equalsIgnoreCase("Text")) {
+            v = new ViewImplementation();
+        } else {
+            v = new ViewBDImplementation();
+        }
     return v;
     }
 }

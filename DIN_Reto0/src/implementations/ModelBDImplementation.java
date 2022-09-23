@@ -20,13 +20,13 @@ public class ModelBDImplementation implements Model{
     DBConnection db = new DBConnection();
     private Connection con;
     private PreparedStatement stmt;
-    
 
-    final String getGreet = "SELECT * FROM greet";
+    final String getGreet = "SELECT * FROM din_reto0.greet";
 
+    @Override
     public String getGreeting() {
         ResultSet rs = null;
-        String greet = "";
+        String greet = null;
         try {
             db.openConnection();
             stmt = con.prepareStatement(getGreet);

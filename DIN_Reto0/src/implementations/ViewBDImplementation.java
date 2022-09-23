@@ -5,54 +5,53 @@
  */
 package implementations;
 
-import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
+import interfaces.View;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 /**
  *
  * @author 2dam
  */
-public class ViewBDImplementation extends Application {
-    private JPanel jPanel1;
-    
-    private JLabel jlabel1;
-    
-    
+public class ViewBDImplementation extends javax.swing.JFrame implements View{
+
+   private JLabel jlabel1;
+   private ViewBDImplementation vbdi;
+   
+   public ViewBDImplementation(){
+        initComponents();
+   }
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+
     @Override
-    public void start(Stage primaryStage) {
-        
-        Button btn = new Button();
-        btn.setText("Say 'Hello World'");
-        btn.setOnAction(new EventHandler<ActionEvent>() {
-            
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("Hello World!");
-            }
-        });
-        
-        StackPane root = new StackPane();
-        root.getChildren().add(btn);
-        
-        Scene scene = new Scene(root, 300, 250);
-        
-        primaryStage.setTitle("Hello World!");
-        primaryStage.setScene(scene);
-        primaryStage.show();
+    public void showGreeting(String greet) {
+        vbdi = new ViewBDImplementation();
+        vbdi.setBounds(0, 0, 700, 500);
+        vbdi.setVisible(true);
+        jlabel1 = new JLabel(greet);
+        jlabel1.setBounds(150, 200, 400, 30);
+        jlabel1.setVisible(true);
+        vbdi.getContentPane().add(jlabel1);
     }
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        launch(args);
-    }
-    
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // End of variables declaration//GEN-END:variables
 }

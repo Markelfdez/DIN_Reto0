@@ -17,11 +17,11 @@ import java.util.ResourceBundle;
  */
 public class ModelFactory {
 
-    ResourceBundle config = ResourceBundle.getBundle("config");
-    String option = config.getString("Access");
-    private Model m;
+    static ResourceBundle config = ResourceBundle.getBundle("config");
+    static String option = config.getString("Access");
+    private static Model m;
 
-    public Model getModel() {
+    public static Model getModel() {
         if (option.equalsIgnoreCase("File")) {
             m = new ModelImplementation();
         } else {

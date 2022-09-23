@@ -16,16 +16,16 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class DBConnection {
-	private ResourceBundle configFile;
+	private ResourceBundle config;
 	private String url;
 	private String user;
 	private String pass;
 	//CONSTRUCTOR
 	public DBConnection() {
-		configFile = ResourceBundle.getBundle("controller.config");
-		url = configFile.getString("URL");
-		user = configFile.getString("USER");
-		pass = configFile.getString("PASSWORD");
+		config = ResourceBundle.getBundle("config");
+		url = config.getString("URL");
+		user = config.getString("USER");
+		pass = config.getString("PASSWORD");
 	}
 	public Connection openConnection() throws SQLException {
 		Connection con= null;

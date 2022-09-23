@@ -21,7 +21,6 @@ public class App {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
         /**
          * the method get the view and the model and sends to the controller to run the app
          */
