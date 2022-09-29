@@ -15,11 +15,13 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class DBConnection {
+public abstract class DBConnection {
 	private ResourceBundle config;
 	private String url;
 	private String user;
 	private String pass;
+                   private Connection con= null;
+                   private PreparedStatement stmt;
 	//CONSTRUCTOR
 	public DBConnection() {
 		config = ResourceBundle.getBundle("config");
@@ -28,16 +30,15 @@ public class DBConnection {
 		pass = config.getString("PASSWORD");
 	}
 	public Connection openConnection() throws SQLException {
-		Connection con= null;
 		try {
-			con = DriverManager.getConnection(url, user, pass);
+                                            con = DriverManager.getConnection(url, user, pass);
 		} catch (SQLException e) {
-		//System.out.println("Error al intentar abrir la BD");
+		System.out.println("Error al intentar abrir la BD");
 		//Gestión de la excepción
 		}
 			return con;
 		}
-		public void closeConnection(PreparedStatement stmt, Connection con) throws SQLException{
+		public void closeConnection() throws SQLException{
 			if (stmt != null) {
 				stmt.close();
 			}
