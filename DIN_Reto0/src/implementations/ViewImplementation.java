@@ -12,7 +12,6 @@ import interfaces.View;
  * @author 2dam
  */
 public class ViewImplementation implements View{
-
     /**
      * show the message "Hello wolrd" from config.properties
      * @param greet 

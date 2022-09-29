@@ -43,6 +43,7 @@ public class ViewBDImplementation extends javax.swing.JFrame implements View{
 
     @Override
     public void showGreeting(String greet) {
+        
         vbdi = new ViewBDImplementation();
         vbdi.setBounds(0, 0, 700, 500);
         vbdi.setVisible(true);

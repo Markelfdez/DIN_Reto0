@@ -10,32 +10,39 @@ import interfaces.Model;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  *
  * @author 2dam
  */
-public class ModelBDImplementation implements Model{
+public class ModelBDImplementation extends DBConnection implements Model{
 
-    DBConnection db = new DBConnection();
     private Connection con;
     private PreparedStatement stmt;
 
-    final String getGreet = "SELECT * FROM din_reto0.greet";
+    final String getGreet = "SELECT * FROM greet";
 
     @Override
     public String getGreeting() {
-        ResultSet rs = null;
-        String greet = null;
-        try {
-            db.openConnection();
+      String greet = null; 
+      try { 
+            ResultSet rs = null;
+            
+            con = openConnection();
             stmt = con.prepareStatement(getGreet);
             rs = stmt.executeQuery();
-            if(rs.next()){
-                greet = rs.getString(1);
-            }
+            rs.next();
+            greet = rs.getString("greet_mssg");
+            
         } catch (Exception e) {
-        }
+        } finally{
+          try {
+              closeConnection();
+          } catch (SQLException ex) {
+             
+          }
+      }
         return greet;
     }
 }

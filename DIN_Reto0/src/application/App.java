@@ -29,7 +29,6 @@ public class App {
         
         Controller controller = new Controller(m, v);
         
-        controller.run(m, v);
         
     }
 
