@@ -23,8 +23,9 @@ public class ViewFactory {
     public static View getView(){
         if (option.equalsIgnoreCase("Text")) {
             v = new ViewImplementation();
-        } else {
+        } else if(option.equalsIgnoreCase("View")){
             v = new ViewBDImplementation();
+        }else{
         }
     return v;
     }

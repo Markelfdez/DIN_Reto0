@@ -24,9 +24,10 @@ public class ModelFactory {
     public static Model getModel() {
         if (option.equalsIgnoreCase("File")) {
             m = new ModelImplementation();
-        } else {
+        } else if(option.equalsIgnoreCase("DB")){
             m = new ModelBDImplementation();
-        }
+        }else{
+         }
         return m;
     }
 }
