@@ -33,7 +33,7 @@ public abstract class DBConnection {
 		try {
                                             con = DriverManager.getConnection(url, user, pass);
 		} catch (SQLException e) {
-		System.out.println("Error al intentar abrir la BD");
+		//System.out.println("Error al intentar abrir la BD");
 		//Gestión de la excepción
 		}
 			return con;
